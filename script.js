@@ -37,8 +37,8 @@ function getComputerChoice() {
 }
 
 function singleGame(playerSelection, computerSelection) {
-    
-
+    return NaN
 }
 
+let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
 console.log(getComputerChoice())
