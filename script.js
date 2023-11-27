@@ -2,26 +2,26 @@ function checkWinner(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
         winner = "Tie"
     }
-    else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    else if (playerSelection == "rock" && computerSelection == "scissors") {
         winner = "Player"
     }
-    else if (playerSelection == "Rock" && computerSelection == "Paper") {
+    else if (playerSelection == "rock" && computerSelection == "paper") {
         winner = "Computer"
     }
-    else if (playerSelection == "Paper" && computerSelection == "Rock") {
+    else if (playerSelection == "paper" && computerSelection == "rock") {
         winner = "Player"
     }
-    else if (playerSelection == "Paper" && computerSelection == "Scissors") {
+    else if (playerSelection == "paper" && computerSelection == "scissors") {
         winner = "Computer"
     }
-    else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+    else if (playerSelection == "scissors" && computerSelection == "paper") {
         winner = "Player"
     }
-    else if (playerSelection == "Scissors" && computerSelection == "Rock") {
+    else if (playerSelection == "scissors" && computerSelection == "rock") {
         winner = "Computer"
     }
     else {
-        winner = "Error: could not determine winner"
+        winner = "None"
     }
 
     return winner 
@@ -29,9 +29,9 @@ function checkWinner(playerSelection, computerSelection) {
 
 function getComputerChoice() {
     let numberChoice = Math.floor(Math.random() * 3)
-    let computerChoice = numberChoice == 0 ? "Rock"
-        : numberChoice == 1 ? "Paper"
-        : numberChoice == 2 ? "Scissors"
+    let computerChoice = numberChoice == 0 ? "rock"
+        : numberChoice == 1 ? "paper"
+        : numberChoice == 2 ? "scissors"
         : "Error: bad choice";
     return computerChoice
 }
@@ -39,14 +39,14 @@ function getComputerChoice() {
 function singleGame(playerSelection, computerSelection) {
     let winner = checkWinner(playerSelection, computerSelection)
     let result = winner == "Player" ? "Congratulations! You won!"
-        : winner = "Computer" ? "Sorry, the Computer won."
-        : winner = "Tie" ? "Tie! Go again."
-        : "Error: no winner";
+        : winner == "Computer" ? "Sorry, the Computer won."
+        : winner == "Tie" ? "Tie! Go again."
+        : "Error: could not determine winner or tie";
     return result
     }
 
 let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
-
+playerSelection = playerSelection.toLowerCase()
 let computerSelection = getComputerChoice()
 console.log(computerSelection)
 console.log(singleGame(playerSelection, computerSelection))
