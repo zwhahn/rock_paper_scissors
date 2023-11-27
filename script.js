@@ -1,6 +1,6 @@
 function checkWinner(playerSelection, computerSelection) {
     if (playerSelection == computerSelection) {
-        return "Tie"
+        winner = "Tie"
     }
     else if (playerSelection == "Rock" && computerSelection == "Scissors") {
         winner = "Player"
@@ -28,7 +28,7 @@ function checkWinner(playerSelection, computerSelection) {
 }
 
 function getComputerChoice() {
-    numberChoice = Math.floor(Math.random() * 3)
+    let numberChoice = Math.floor(Math.random() * 3)
     let computerChoice = numberChoice == 0 ? "Rock"
         : numberChoice == 1 ? "Paper"
         : numberChoice == 2 ? "Scissors"
@@ -37,8 +37,17 @@ function getComputerChoice() {
 }
 
 function singleGame(playerSelection, computerSelection) {
-    return NaN
-}
+    let winner = checkWinner(playerSelection, computerSelection)
+    let result = winner == "Player" ? "Congratulations! You won!"
+        : winner = "Computer" ? "Sorry, the Computer won."
+        : winner = "Tie" ? "Tie! Go again."
+        : "Error: no winner";
+    return result
+    }
 
 let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
-console.log(getComputerChoice())
+
+let computerSelection = getComputerChoice()
+console.log(computerSelection)
+console.log(singleGame(playerSelection, computerSelection))
+
