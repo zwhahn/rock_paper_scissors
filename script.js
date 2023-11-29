@@ -45,6 +45,17 @@ function singleGame(playerSelection, computerSelection) {
     return result
     }
 
+function game(score) {
+    let winner = checkWinner(playerSelection, computerSelection)
+    if (winner == "Player") {
+        playerCount += 1
+    }  
+    if (winner == "Computer") {
+        computerCount += 1
+    }
+    gameCount += 1
+}
+
 let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
 playerSelection = playerSelection.toLowerCase()
 let computerSelection = getComputerChoice()
