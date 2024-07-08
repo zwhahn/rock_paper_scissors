@@ -36,7 +36,7 @@ function getComputerChoice() {
     return computerChoice
 }
 
-function singleGame(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     let winner = checkWinner(playerSelection, computerSelection)
     let result = winner == "Player" ? "Congratulations! You won!"
         : winner == "Computer" ? "Sorry, the Computer won."
@@ -45,20 +45,32 @@ function singleGame(playerSelection, computerSelection) {
     return result
     }
 
-function game(score) {
-    let winner = checkWinner(playerSelection, computerSelection)
-    if (winner == "Player") {
-        playerCount += 1
-    }  
-    if (winner == "Computer") {
-        computerCount += 1
+let playerCount = 0
+let computerCount = 0
+let numberOfRounds = 5
+function playGame(playerCount, computerCount, numberOfRounds) {
+    // Loop 5 times
+    for (let round = 0; round < numberOfRounds; round++){
+        let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors").toLowerCase()
+        let computerSelection = getComputerChoice()
+        let winner = checkWinner(playerSelection, computerSelection)
+        if (winner == "Player") {
+            playerCount += 1}  
+        if (winner == "Computer") {
+            computerCount += 1}
+        console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`)
+        console.log(`Round Winner: ${winner}`)
+        console.log(`Current Score: Player ${playerCount}, Computer: ${computerCount}`)
+        console.log(`Rounds Completed: ${round + 1}`)
     }
-    gameCount += 1
+    console.log('Game Over')
+    console.log('Reload page to play again.')
 }
 
-let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
-playerSelection = playerSelection.toLowerCase()
-let computerSelection = getComputerChoice()
-console.log(computerSelection)
-console.log(singleGame(playerSelection, computerSelection))
+// let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
+// playerSelection = playerSelection.toLowerCase()
+// let computerSelection = getComputerChoice()
+// console.log(computerSelection)
+// console.log(playRound(playerSelection, computerSelection))
+playGame(playerCount, computerCount, numberOfRounds)
 
