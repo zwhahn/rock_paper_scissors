@@ -47,30 +47,29 @@ function playRound(playerSelection, computerSelection) {
 
 let playerCount = 0
 let computerCount = 0
-let numberOfRounds = 5
-function playGame(playerCount, computerCount, numberOfRounds) {
-    // Loop 5 times
-    for (let round = 0; round < numberOfRounds; round++){
-        let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors").toLowerCase()
-        let computerSelection = getComputerChoice()
-        let winner = checkWinner(playerSelection, computerSelection)
-        if (winner == "Player") {
-            playerCount += 1}  
-        if (winner == "Computer") {
-            computerCount += 1}
-        console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`)
-        console.log(`Round Winner: ${winner}`)
-        console.log(`Current Score: Player ${playerCount}, Computer: ${computerCount}`)
-        console.log(`Rounds Completed: ${round + 1}`)
-    }
-    console.log('Game Over')
-    console.log('Reload page to play again.')
+function playGame(playerCount, computerCount, playerSelection) {
+    let computerSelection = getComputerChoice()
+    let winner = checkWinner(playerSelection, computerSelection)
+    if (winner == "Player") {
+        playerCount += 1}  
+    if (winner == "Computer") {
+        computerCount += 1}
+    console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`);
+    result.textContent = `${winner}`;
+    console.log(`Current Score: Player ${playerCount}, Computer: ${computerCount}`);
 }
 
-// let playerSelection = prompt("Lets play! Choose: Rock, Paper, or Scissors")
-// playerSelection = playerSelection.toLowerCase()
-// let computerSelection = getComputerChoice()
-// console.log(computerSelection)
-// console.log(playRound(playerSelection, computerSelection))
-playGame(playerCount, computerCount, numberOfRounds)
+function assignRock() {
+    playerSelection = "rock";
+    playGame(playerCount, computerCount, playerSelection)
+}
 
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        playerSelection = button.id;
+        playGame(playerCount, computerCount, playerSelection);
+    })
+})
+
+const result = document.querySelector(".result");

@@ -1,0 +1,33 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+    text-align: center;
+    margin: 80px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    font-size: 20px;
+    width: 100px;
+    height: 40px;
+    margin: 0px 20px;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.result {
+    width: 150px;
+    margin-left: 20px;
+}
