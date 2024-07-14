@@ -45,31 +45,44 @@ function playRound(playerSelection, computerSelection) {
     return result
     }
 
-let playerCount = 0
-let computerCount = 0
-function playGame(playerCount, computerCount, playerSelection) {
+let playerCount = 0;
+let computerCount = 0;
+let round = 1;
+let maxRound = 5;
+
+function playGame(playerCount, computerCount, playerSelection, currentRound, maxRound) {
     let computerSelection = getComputerChoice()
     let winner = checkWinner(playerSelection, computerSelection)
     if (winner == "Player") {
-        playerCount += 1}  
+        playerCount = playerCount++}  
     if (winner == "Computer") {
-        computerCount += 1}
-    console.log(`Player: ${playerSelection}, Computer: ${computerSelection}`);
-    result.textContent = `${winner}`;
-    console.log(`Current Score: Player ${playerCount}, Computer: ${computerCount}`);
-}
+        computerCount = computerCount++}
+    playerScore.textContent = `Player: ${playerCount}`;
+    cpuScore.textContent = `Computer: ${computerCount}`;
+    if (currentRound === maxRound){
+        round = 1;
+        result.textContent = `Winner: ${winner}`;
+    }
+    }
 
-function assignRock() {
-    playerSelection = "rock";
-    playGame(playerCount, computerCount, playerSelection)
-}
 
 const buttons = document.querySelectorAll("button");
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.id;
-        playGame(playerCount, computerCount, playerSelection);
+        currentRound = round++
+        playGame(playerCount, computerCount, playerSelection, currentRound, maxRound);
     })
 })
 
 const result = document.querySelector(".result");
+const playerScore = document.querySelector(".player-score");
+const cpuScore = document.querySelector(".cpu-score");
+
+
+// click button
+// winner is decided
+// winner +1
+// round +1
+// After 5 rounds,  winner has highest scrore
+// round is reset to 0
