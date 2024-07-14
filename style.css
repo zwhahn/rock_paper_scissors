@@ -36,3 +36,13 @@ button {
 .player-score, .cpu-score {
     margin: 0px 15px;
 }
+
+.round-winner {
+    text-align: center;
+}
+
+.reset {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
