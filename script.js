@@ -62,7 +62,6 @@ function playGame(playerSelection, round, MAX_ROUND) {
     cpuScore.textContent = `Computer: ${computerCount}`;
     if (round === MAX_ROUND){
         round = 0;
-        reset.appendChild(resetButton);
         if (playerCount > computerCount){
             result.textContent = `Winner: Player`;
         }
@@ -97,9 +96,3 @@ const result = document.querySelector(".result");
 const playerScore = document.querySelector(".player-score");
 const cpuScore = document.querySelector(".cpu-score");
 const roundWinner = document.querySelector(".round-winner");
-
-const reset = document.querySelector(".reset");
-const resetButton = document.createElement("button");
-resetButton.textContent = `Play Again`;
-resetButton.style.height = `60px`;
-resetButton.style.width = `140px`;
