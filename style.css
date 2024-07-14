@@ -1,10 +1,19 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #F2F3F4;
+    color: #212529;
 }
 
 h1{
     text-align: center;
     margin: 80px;
+    font-size: 100px;
+}
+
+h2 {
+    text-align: center;
+    margin: 40px;
+    font-size: 20px;
 }
 
 .button-container {
@@ -29,8 +38,9 @@ button {
 
 .result {
     width: 600px;
-    margin-left: 20px;
     text-align: center;
+    margin-top: 60px;
+    font-size: 70px;
 }
 
 .player-score, .cpu-score {
@@ -39,6 +49,7 @@ button {
 
 .round-winner {
     text-align: center;
+    font-size: 20px;
 }
 
 .reset {
