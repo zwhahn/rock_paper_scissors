@@ -1,7 +1,7 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #F2F3F4;
-    color: #212529;
+    background-color: #e9c46a;
+    color: #264653;
 }
 
 h1{
@@ -26,6 +26,20 @@ button {
     width: 100px;
     height: 40px;
     margin: 0px 20px;
+    border-radius: 10px;
+    border: 1px solid #264653;
+    /* color: #2a9d8f; */
+    background-color: #2a9d8f;
+    transition-duration: 0.2s;
+    position: relative;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e9edc9;
+    /* width: 102px; */
+    /* height: 42px; */
+    border-width: 3px;
 }
 
 .results-container, .score-container {

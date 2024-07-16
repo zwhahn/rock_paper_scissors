@@ -78,7 +78,6 @@ function playGame(playerSelection, round, MAX_ROUND) {
             button.disabled = true;
             button.style.backgroundColor = '#D3D3D3';
             button.style.color = '#A9A9A9';
-
         })
     }
     return round;
